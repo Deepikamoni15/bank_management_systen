@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Packages</title>
+</head>
+<body>
+    <h2>Available Bank Packages</h2>
+    <table border="1">
+        <tr>
+            <th>Package Name</th>
+            <th>Description</th>
+            <th>Eligibility</th>
+            <th>Benefits</th>
+        </tr>
+        {% for package in packages %}
+        <tr>
+            <td>{{ package[1] }}</td>
+            <td>{{ package[2] }}</td>
+            <td>{{ package[3] }}</td>
+            <td>{{ package[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Welcome, {{ user }}!</h2>
+    {% if user_type == 'admin' %}
+        <a href="{{ url_for('admin') }}">Manage Customers</a>
+    {% else %}
+        <a href="{{ url_for('customer') }}">View Account</a>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

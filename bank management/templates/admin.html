@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Admin Panel - Manage Customers</h2>
+
+    <h3>Add Customer</h3>
+    <form method="POST" action="{{ url_for('add_customer') }}">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <label>Initial Balance:</label>
+        <input type="number" name="balance" required>
+        <br>
+        <input type="submit" value="Add Customer">
+    </form>
+
+    <h3>Customer List</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer[0] }}</td>
+            <td>{{ customer[1] }}</td>
+            <td>${{ customer[3] }}</td>
+            <td><a href="{{ url_for('delete_customer', id=customer[0]) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
